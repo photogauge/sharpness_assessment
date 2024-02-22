@@ -18,6 +18,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install pre-requisites
+        run: |
+          if [ ${{ matrix.os }} == 'ubuntu-latest' ]; then
+            sudo apt-get update
+            sudo apt-get install -y bison python3 python3-pip python3-jinja2 meson wget \
+            build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
+            cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
+            libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
+            libxinerama-dev libxi-dev libxtst-dev 
+          fi
+          if [ ${{ matrix.os }} == 'windows-latest' ]; then
+            choco install -y python
+            choco install -y git
+            choco install -y cmake
+            choco install -y visualstudio2019buildtools
+            choco install -y visualstudio2019-workload-vctools
+          fi
+          if [ ${{ matrix.os }} == 'macos-latest' ]; then
+            brew install cmake
+          fi
       - name: Restore artifacts, or setup vcpkg for building artifacts
         uses: lukka/run-vcpkg@v10
         with:
