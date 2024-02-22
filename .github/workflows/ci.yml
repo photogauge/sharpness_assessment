@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  # Uncomment to build when pushing to main
+  # push:
+  #   branches:
+  #     - "main"
+
+jobs:
+  cpp:
+    name: ${{ github.workflow }} C++ library on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04, macos-latest, windows-latest]
+        include:
+          - os: windows-latest
+            triplet: x64-windows
+          - os: ubuntu-latest
+            triplet: x64-linux
+          - os: macos-latest
+            triplet: x64-osx
+    env:
+      VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Restore artifacts, or setup vcpkg for building artifacts
+        uses: lukka/run-vcpkg@v10
+        with:
+          vcpkgGitCommitId: "a7b6122f6b6504d16d96117336a0562693579933"
+
+      - name: Create a build directory
+        run: mkdir build
+
+      - name: Configure cmake
+        run: cmake -B build
+
+      - name: Build with cmake
+        run: cmake --build build --config Release
+
+      - name: Test
+        run: ctest --test-dir build
+
+  python:
+    name: ${{ github.workflow }} Python package on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04, macos-latest, windows-latest]
+        python-version: ["3.7"]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Restore artifacts, or setup vcpkg for building artifacts
+        uses: lukka/run-vcpkg@v10
+        with:
+          vcpkgGitCommitId: "a7b6122f6b6504d16d96117336a0562693579933"
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install scikit-build
+        run: pip install scikit-build
+
+      - name: Build and install with pip
+        run: pip install ${{ github.workspace }}[test]
+
+      - name: Test
+        run: pytest tests
