@@ -37,10 +37,7 @@ jobs:
           fi
           if [ ${{ matrix.os }} == 'windows-latest' ]; then
             choco install -y python
-            choco install -y git
             choco install -y cmake
-            choco install -y visualstudio2019buildtools
-            choco install -y visualstudio2019-workload-vctools
           fi
           if [ ${{ matrix.os }} == 'macos-latest' ]; then
             brew install cmake
@@ -57,7 +54,7 @@ jobs:
           # vcpkg does not support i686 nor aarch64
           CIBW_ARCHS_LINUX: "x86_64"
           # Skip musllinux builds
-          CIBW_SKIP: "*-musllinux_*"
+          CIBW_SKIP: "*-musllinux_*" "cp36-*" "cp37-*" "cp38-*" "cp39-*" "cp310-*"
 
       - name: Upload python wheels
         uses: actions/upload-artifact@v2
