@@ -1,6 +1,6 @@
 {
   "name": "sharpness",
-  "version-semver": "0.1.1",
+  "version-semver": "0.1.2",
   "description": "A minimal example library using pybind11 and vcpkg",
   "dependencies": ["opencv4"],
   "features": {

@@ -2,6 +2,12 @@ name: CD
 
 on: 
   workflow_dispatch:
+    manual:
+      inputs:
+        tag:
+          description: 'Tag to release'
+          required: true
+          default: 'v0.0.0'
   push:
     tags:
       - "v*.*.*"
@@ -19,6 +25,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install pre-requisites
+        shell: bash
         run: |
           if [ ${{ matrix.os }} == 'ubuntu-latest' ]; then
             sudo apt-get update
@@ -26,7 +33,7 @@ jobs:
             build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
             cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
             libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
-            libxinerama-dev libxi-dev libxtst-dev 
+            libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
           fi
           if [ ${{ matrix.os }} == 'windows-latest' ]; then
             choco install -y python
