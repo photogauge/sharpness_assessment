@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest-l, windows-latest, macos-latest]
+        os: [ubuntu-latest-m, windows-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v3
