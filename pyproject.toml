@@ -40,5 +40,6 @@ testpaths = ["tests"]
 # Install system library
 [tool.cibuildwheel.linux]
 before-all = [
-    "yum -y groupinstall 'Development Tools'"
+    "yum -y groupinstall 'Development Tools'",
+    "yum install mesa-libGL-devel mesa-libGLU-devel",
 ]
