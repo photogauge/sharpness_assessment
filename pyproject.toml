@@ -36,3 +36,9 @@ install.strip = false
 [tool.pytest.ini_options]
 minversion = "6.0"
 testpaths = ["tests"]
+
+# Install system library
+[tool.cibuildwheel.linux]
+before-all = [
+    "yum groupinstall 'Development Tools'"
+]
