@@ -44,10 +44,15 @@ jobs:
             brew install cmake
           fi
       - name: Restore artifacts, or setup vcpkg for building artifacts
-        uses: lukka/run-vcpkg@v10
+        uses: lukka/run-vcpkg@v11
         with:
           vcpkgGitCommitId: "a7b6122f6b6504d16d96117336a0562693579933"
-          runVcpkgInstall: true
+          runVcpkgInstall: false
+
+      - name: Update vcpkg and install dependencies
+        run: |
+          vcpkg update
+          vcpkg install
 
       - name: Install cibuildwheel
         run: python -m pip install cibuildwheel
