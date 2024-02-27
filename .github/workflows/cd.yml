@@ -31,6 +31,8 @@ jobs:
           fetch-depth: 0
 
       - uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
 
       - name: Install pre-requisites
         shell: bash
@@ -43,7 +45,7 @@ jobs:
             libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
             libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
           
-            python3 -m pip install setuputils itertools
+            python3 -m pip install distutils
           fi
           if [ ${{ matrix.os }} == 'windows-latest' ]; then
             choco install -y cmake
