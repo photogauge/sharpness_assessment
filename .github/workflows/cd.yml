@@ -23,6 +23,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: true
+          # This is useful to avoid https://github.com/microsoft/vcpkg/issues/25349
+          # which is caused by missing Git history on the vcpkg submodule which ports
+          # try to access.
+          fetch-depth: 0
+
       - uses: actions/setup-python@v3
 
       - name: Install pre-requisites
