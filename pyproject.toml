@@ -40,5 +40,5 @@ testpaths = ["tests"]
 # Install system library
 [tool.cibuildwheel.linux]
 before-all = [
-    "yum groupinstall 'Development Tools'"
+    "yum -y groupinstall 'Development Tools'"
 ]
