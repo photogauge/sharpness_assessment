@@ -42,6 +42,8 @@ jobs:
             cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
             libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
             libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
+          
+            python3 -m pip install distutils
           fi
           if [ ${{ matrix.os }} == 'windows-latest' ]; then
             choco install -y cmake
