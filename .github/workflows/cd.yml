@@ -47,12 +47,7 @@ jobs:
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgGitCommitId: "a7b6122f6b6504d16d96117336a0562693579933"
-          runVcpkgInstall: false
-
-      - name: Update vcpkg and install dependencies
-        run: |
-          vcpkg upgrade --no-dry-run
-          vcpkg install
+          runVcpkgInstall: true
 
       - name: Install cibuildwheel
         run: python -m pip install cibuildwheel
