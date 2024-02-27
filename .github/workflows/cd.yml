@@ -51,7 +51,7 @@ jobs:
 
       - name: Update vcpkg and install dependencies
         run: |
-          vcpkg update
+          vcpkg upgrade --no-dry-run
           vcpkg install
 
       - name: Install cibuildwheel
