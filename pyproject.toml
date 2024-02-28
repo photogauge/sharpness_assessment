@@ -40,7 +40,11 @@ testpaths = ["tests"]
 # Install system library
 [tool.cibuildwheel.linux]
 before-all = [
-    "yum update",
-    "yum -y groupinstall 'Development Tools'",
-    "yum -y install mesa-libGLU-devel mesa-libGLES-devel",
+    "apt-get update",
+    "apt-get install -y bison python3 python3-pip python3-jinja2 meson wget \
+     build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
+     cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
+     libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
+     libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev",
+    "python3 -m pip install setuptools jinja2"
 ]
