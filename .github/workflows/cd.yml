@@ -66,9 +66,9 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_SKIP: "pp* *i686 *-win32 cp37-* cp38-* cp39-* cp310-* cp312-*" # skip building for PyPy
+          CIBW_SKIP: "pp* *i686 *-win32 cp37-* cp38-* cp39-* cp310-*" # skip building for PyPy
           CIBW_ARCHES: x86_64
-          CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_24
+          CIBW_MANYLINUX_X86_64_IMAGE: debian:buster-glibc_2_28
 
       - name: Upload python wheels
         uses: actions/upload-artifact@v2
