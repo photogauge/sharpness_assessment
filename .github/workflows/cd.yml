@@ -66,7 +66,7 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_SKIP: "*-musllinux* pp* *i686 *-win32 cp37-* cp38-* cp39-* cp310-*" # skip building for PyPy
+          CIBW_SKIP: "*-musllinux* pp* *i686 *-win32 cp37-* cp38-* cp39-* cp310-* cp312-*" # skip building for PyPy
           CIBW_ARCHES: x86_64
           CIBW_MANYLINUX_X86_64_IMAGE: quay.io/pypa/manylinux_2_24_x86_64
 
