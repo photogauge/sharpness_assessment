@@ -41,6 +41,8 @@ testpaths = ["tests"]
 [tool.cibuildwheel.linux]
 before-all = [
     "yum update -y",
-    "yum -y install python3 mesa-libGLU-devel mesa-libGLES-devel libX11-devel libXi-devel libXrandr-devel libXtst-devel libmount-devel systemd-devel",
-    "yum -y groupinstall 'Development Tools'"
+    "yum -y groupinstall 'Development Tools'",
+    """yum -y install python3 mesa-libGLU-devel mesa-libGLES-devel \
+       libX11-devel libXi-devel libXrandr-devel libXtst-devel \
+       libmount-devel systemd-devel"""
 ]
