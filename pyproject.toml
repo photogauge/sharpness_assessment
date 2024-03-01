@@ -42,7 +42,7 @@ testpaths = ["tests"]
 before-all = [
     "yum update -y",
     "yum -y groupinstall 'Development Tools'",
-    """yum -y install python3-jinja2.noarch perl-open.noarch \
+    """yum -y install  \
        mesa-libGLU-devel mesa-libGLES-devel \
        libX11-devel libXcursor-devel libXdamage-devel libXinerama-devel libXi-devel libXrandr-devel libXtst-devel \
        libmount-devel systemd-devel"""
