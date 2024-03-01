@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.21)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE release)
 set(VCPKG_BUILD_TYPE release)
-set(VCPKG_OVERLAY_PORTS "overlays")
+set(VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/overlays")
 
 # vcpkg dependency manager
 option(CMAKE_FETCH_VCPKG "Whether to fetch vcpkg if VCPKG_ROOT is not set." ON)
