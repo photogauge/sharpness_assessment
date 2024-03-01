@@ -40,7 +40,6 @@ testpaths = ["tests"]
 # Install system library
 [tool.cibuildwheel.linux]
 before-all = [
-    "yum update",
     """
     yum -y install python3 mesa-libGLU-devel mesa-libGLES-devel libX11-devel libXi-devel libXrandr-devel libXtst-devel libmount-devel systemd-devel
     """,
