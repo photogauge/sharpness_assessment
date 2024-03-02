@@ -1,4 +1,4 @@
-from sharpness_python_api import assess_sharpness
+from sharpness_python_api import run_sharpness_assessment
 
 if __name__ == '__main__':
-    assess_sharpness("./images/fuzzy.jpg", "./images/out", 0.5)
+    run_sharpness_assessment("./images/fuzzy.jpg", "./images/out", 0.5)

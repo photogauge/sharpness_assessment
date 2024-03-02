@@ -1,4 +1,4 @@
-#include "sharpness.h"
+#include "sharpness_assessment.h"
 
 #include <pybind11/pybind11.h>
 
@@ -15,7 +15,7 @@ PYBIND11_MODULE(_python_api, m) {
         $ python -c "import sharpness_assessment; help(sharpness_python_api)"
     )pbdoc";
 
-    m.def("assess_sharpness", &assess_sharpness, "Takes an image and assess the sharpness");
+    m.def("run_sharpness_assessment", &assess_sharpness, "Takes an image and assess the sharpness");
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);

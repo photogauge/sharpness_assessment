@@ -22,10 +22,10 @@ find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 # specify the executable target to be built
-add_library(${PROJECT_NAME} STATIC sharpness.cpp s3tools.cpp s3estimator.cpp fftwrapper.cpp low_level_fft.cpp)
+add_library(${PROJECT_NAME} STATIC sharpness_assessment.cpp s3tools.cpp s3estimator.cpp fftwrapper.cpp low_level_fft.cpp)
 
 # specify the executable target to be built
-# add_executable(${PROJECT_NAME}-app main.cpp sharpness.cpp s3tools.cpp s3estimator.cpp fftwrapper.cpp low_level_fft.cpp)
+# add_executable(${PROJECT_NAME}-app main.cpp sharpness_assessment.cpp s3tools.cpp s3estimator.cpp fftwrapper.cpp low_level_fft.cpp)
 
 # tell it to link the executable target against OpenCV
 target_link_libraries(${PROJECT_NAME}  ${OpenCV_LIBS} )

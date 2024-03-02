@@ -2,7 +2,7 @@
 // Created by vivek on 14/11/18.
 //
 
-#include "sharpness.h"
+#include "sharpness_assessment.h"
 #include <string>
 #include <iostream>
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
 	float scale_factor = atof(argv[3]);
 
-	assess_sharpness(argv[1], argv[2], scale_factor);
+	run_sharpness_assessment(argv[1], argv[2], scale_factor);
 
     return 0;
 }

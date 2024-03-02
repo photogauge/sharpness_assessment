@@ -147,7 +147,7 @@ string getFileName(const string& s) {
 	return("");
 }
 
-void assess_sharpness(const char* imagePath, const char* outPath, float scale_factor) {
+void run_sharpness_assessment(const char* imagePath, const char* outPath, float scale_factor) {
 	cout << "..........." << imagePath << "\n" << "........" << outPath;
 
     // read input image
