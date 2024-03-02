@@ -42,7 +42,7 @@ testpaths = ["tests"]
 before-all = [
     "yum update -y",
     "yum -y groupinstall 'Development Tools'",
-    """yum -y install python3.11 python3.11-pip python3-jinja2 \
+    """yum -y install python3.11 python3.11-devel python3.11-pip python3-jinja2 \
        mesa-libGLU-devel mesa-libGLES-devel mesa-libEGL-devel \
        libX11-devel libXcursor-devel libXdamage-devel libXinerama-devel libXi-devel libXrandr-devel libXtst-devel \
        libmount-devel systemd-devel"""
