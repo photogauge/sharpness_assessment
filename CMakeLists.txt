@@ -49,6 +49,10 @@ endif()
 file(READ ${CMAKE_SOURCE_DIR}/vcpkg.json vcpkg_json)
 string(JSON PROJECT_NAME GET ${vcpkg_json} "name")
 string(JSON VERSION_STRING GET ${vcpkg_json} "version-semver")
+
+# Set the project name and version
+set(PROJECT_NAME "sharpness_assessment")
+
 project(${PROJECT_NAME} VERSION ${VERSION_STRING} LANGUAGES CXX)
 
 # It is recommended to split this file into multiple files and use
