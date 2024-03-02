@@ -12,10 +12,10 @@ PYBIND11_MODULE(_python_api, m) {
         Python wrapper for `sharpness_assessment`.
 
         This information will be displayed when using `help()`:
-        $ python -c "import sharpness_assessment; help(sharpness_python_api)"
+        $ python -c "import sharpness_assessment; help(sharpness_assessment)"
     )pbdoc";
 
-    m.def("run_sharpness_assessment", &assess_sharpness, "Takes an image and assess the sharpness");
+    m.def("run_sharpness_assessment", &run_sharpness_assessment, "Takes an image and assess the sharpness");
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
