@@ -39,7 +39,7 @@ jobs:
         run: |
           if [ ${{ matrix.os }} == 'ubuntu-latest-l' ]; then
             sudo apt-get update
-            sudo apt-get install -y bison python3 python3-pip python3-jinja2 meson wget \
+            sudo apt-get install -y bison python3 python3-pip python3-jinja2 python3-opencv meson wget \
             build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
             cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
             libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
@@ -49,10 +49,10 @@ jobs:
           fi
           if [ ${{ matrix.os }} == 'windows-latest' ]; then
             choco install -y cmake
-            /c/msys64/usr/bin/pacman -S --noconfirm mingw-w64-x86_64-libwinpthread
+            /c/msys64/usr/bin/pacman -S --noconfirm mingw-w64-x86_64-libwinpthread mingw-w64-x86_64-opencv
           fi
           if [ ${{ matrix.os }} == 'macos-latest' ]; then
-            brew install cmake
+            brew install cmake opencv
           fi
       - name: Restore artifacts, or setup vcpkg for building artifacts
         uses: lukka/run-vcpkg@v11
