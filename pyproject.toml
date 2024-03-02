@@ -43,7 +43,7 @@ before-all = [
     "yum update -y",
     "yum -y groupinstall 'Development Tools'",
     """yum -y install  \
-       mesa-libGLU-devel mesa-libGLES-devel \
+       mesa-libGLU-devel mesa-libGLES-devel mesa-libEGL-devel \
        libX11-devel libXcursor-devel libXdamage-devel libXinerama-devel libXi-devel libXrandr-devel libXtst-devel \
        libmount-devel systemd-devel"""
 ]
