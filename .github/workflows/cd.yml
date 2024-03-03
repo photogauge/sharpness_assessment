@@ -101,10 +101,8 @@ jobs:
           cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
           libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
           libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
-        
-          python3 -m pip install setuptools jinja2
 
-      - run: python -m build --sdist
+      - run: python3 setup.py sdist
 
       - name: Upload python sdist
         uses: actions/upload-artifact@v2
