@@ -102,7 +102,10 @@ jobs:
           libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
           libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
 
-      - run: python3 setup.py sdist
+      - run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install skbuild
+          python3 setup.py sdist
 
       - name: Upload python sdist
         uses: actions/upload-artifact@v2
