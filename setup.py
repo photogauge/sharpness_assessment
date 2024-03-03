@@ -77,5 +77,5 @@ setup(
     # ! setup_requires=["cmake"] should not be used, as it causes `vcpkg` to fail
     cmake_with_sdist=True,
     # Signal cmake to use `vcpkg`
-    cmake_args=["-DBUILD_TESTS=OFF", "-DVCPKG_BUILD_TYPE=Release", "-DCMAKE_BUILD_TYPE=Release"]
+    cmake_args=["-DBUILD_TESTS=OFF"],
 )
