@@ -74,7 +74,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   build_sdist:
-    name: Build python sdist
+    name: Build source distribution
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -107,7 +107,7 @@ jobs:
           python3 -m pip install scikit-build
           python3 setup.py sdist
 
-      - name: Upload python sdist
+      - name: Upload source distribution
         uses: actions/upload-artifact@v2
         with:
           name: python-sdist
