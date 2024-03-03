@@ -68,7 +68,7 @@ if len(packages) > 1:
 
 setup(
     # Package metadata, comment out if it is provided in `pyproject.toml`.
-    # name=PROJECT_NAME, # Use the name defined in `vcpkg.json`
+    name=PROJECT_NAME, # Use the name defined in `vcpkg.json`
     version=PROJECT_VERSION_STRING,  # Set version from `vcpkg.json`
     packages=packages,
     package_dir={"": python_packages_root},
