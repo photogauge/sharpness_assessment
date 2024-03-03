@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest-l, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v3
@@ -37,7 +37,7 @@ jobs:
       - name: Install pre-requisites
         shell: bash
         run: |
-          if [ ${{ matrix.os }} == 'ubuntu-latest-l' ]; then
+          if [ ${{ matrix.os }} == 'ubuntu-latest' ]; then
             sudo apt-get update
             sudo apt-get install -y bison python3 python3-pip python3-jinja2 python3-opencv meson wget \
             build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
