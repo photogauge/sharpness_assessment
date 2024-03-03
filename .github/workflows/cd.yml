@@ -104,7 +104,7 @@ jobs:
 
       - run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install skbuild
+          python3 -m pip install scikit-build
           python3 setup.py sdist
 
       - name: Upload python sdist
