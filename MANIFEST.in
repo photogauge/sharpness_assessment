@@ -12,4 +12,5 @@ recursive-include tests *
 recursive-include overlays *
 prune .github
 prune vcpkg/*
+prune _skbuild/*
 exclude MANIFEST.in
