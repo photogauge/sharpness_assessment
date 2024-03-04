@@ -4,7 +4,19 @@
       "release-type": "simple",
       "draft": false,
       "prerelease": false,
-      "skip-github-release": true
+      "skip-github-release": true,
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "vcpkg.json",
+          "jsonpath": "$.version-semver"
+        },
+        {
+          "type": "json",
+          "path": "version.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
