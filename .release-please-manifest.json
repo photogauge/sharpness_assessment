@@ -8,7 +8,8 @@
     },
     {
       "type": "json",
-      "path": "version.json"
+      "path": "version.json",
+      "jsonpath": "$.version"
     }
   ]
 }
