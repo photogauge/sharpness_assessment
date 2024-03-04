@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.12 (2024-03-04)
+
+
+### Features
+
+* automated build and release of the sharpness assessment package ([#1](https://github.com/photogauge/sharpness_assessment/issues/1)) ([d1137bc](https://github.com/photogauge/sharpness_assessment/commit/d1137bcee81bd8518acce4abf46ea17018f94b59))
+
+
+### Miscellaneous Chores
+
+* publish release 0.1.10 ([f40a9ea](https://github.com/photogauge/sharpness_assessment/commit/f40a9eabc06fcc2480fc409c0c6a1fe6a38e4175))
+* publish release 0.1.11 ([6eec3f8](https://github.com/photogauge/sharpness_assessment/commit/6eec3f8a3aaf3c05a8e6e089c7bc6c53537dba2b))
+* publish release 0.1.12 ([f02b2a8](https://github.com/photogauge/sharpness_assessment/commit/f02b2a89c457376f2dd3875130b19a442ef93bf8))
+* publish release 0.1.6 ([922254a](https://github.com/photogauge/sharpness_assessment/commit/922254ad86321fba59a085ddc3a5a05d7b2876d1))
+* publish release 0.1.6 ([bb45b8f](https://github.com/photogauge/sharpness_assessment/commit/bb45b8fffed2f1cfde15db206d42cdca44bc8767))
+* publish release 0.1.7 ([8cb1f3f](https://github.com/photogauge/sharpness_assessment/commit/8cb1f3f94fc97531b09bc771a57d4ae28066d980))
+* publish release 0.1.9 ([4872aaf](https://github.com/photogauge/sharpness_assessment/commit/4872aaf5ad13d78d99f097de5d889d889df89c0d))
+* republish release 0.1.12 ([573625e](https://github.com/photogauge/sharpness_assessment/commit/573625e60a4dd8ceacd4afb69482ef98030e7d6c))
+* republish release 0.1.12 ([f53e9b7](https://github.com/photogauge/sharpness_assessment/commit/f53e9b71a311397f74e1979862fe2983badfc1ff))
+
 ## [0.1.12](https://github.com/photogauge/sharpness_assessment/compare/v0.1.12...v0.1.12) (2024-03-04)
 
 
