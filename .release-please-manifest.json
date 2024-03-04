@@ -1,5 +1,15 @@
 {
   ".": "0.1.12",
   "extra-files": [
+    {
+      "type": "json",
+      "path": "vcpkg.json",
+      "jsonpath": "$.version-semver"
+    },
+    {
+      "type": "json",
+      "path": "version.json",
+      "jsonpath": "$.version"
+    }
   ]
 }
