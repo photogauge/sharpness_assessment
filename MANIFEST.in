@@ -1,0 +1,16 @@
+include .clang-format
+include .github/workflows/cd.yml
+include .github/workflows/ci.yml
+include .gitignore
+include CMakeLists.txt
+include README.md
+include pyproject.toml
+include setup.py
+include vcpkg.json
+recursive-include src *
+recursive-include tests *
+recursive-include overlays *
+prune .github
+prune vcpkg/*
+prune _skbuild/*
+exclude MANIFEST.in

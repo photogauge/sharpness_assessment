@@ -1,0 +1,12 @@
+{
+  "name": "sharpness-assessment",
+  "version-semver": "0.1.5",
+  "description": "A minimal example library using pybind11 and vcpkg",
+  "dependencies": ["opencv"],
+  "features": {
+    "tests": {
+      "description": "Build Tests",
+      "dependencies": ["gtest"]
+    }
+  }
+}

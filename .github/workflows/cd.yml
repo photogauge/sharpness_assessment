@@ -1,0 +1,157 @@
+name: CD
+
+on: 
+  workflow_dispatch:
+    manual:
+      inputs:
+        tag:
+          description: 'Tag to release'
+          required: true
+          default: 'v0.0.0'
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build_wheels:
+    name: Python wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          # This is useful to avoid https://github.com/microsoft/vcpkg/issues/25349
+          # which is caused by missing Git history on the vcpkg submodule which ports
+          # try to access.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+
+      - name: Install pre-requisites
+        shell: bash
+        run: |
+          if [ ${{ matrix.os }} == 'ubuntu-latest' ]; then
+            sudo apt-get update
+            sudo apt-get install -y bison python3 python3-pip python3-jinja2 python3-opencv meson wget \
+            build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
+            cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
+            libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
+            libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
+          
+            python3 -m pip install setuptools jinja2
+          fi
+          if [ ${{ matrix.os }} == 'windows-latest' ]; then
+            choco install -y cmake
+            /c/msys64/usr/bin/pacman -S --noconfirm mingw-w64-x86_64-libwinpthread mingw-w64-x86_64-opencv
+          fi
+          if [ ${{ matrix.os }} == 'macos-latest' ]; then
+            brew install cmake opencv
+          fi
+      - name: Restore artifacts, or setup vcpkg for building artifacts
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgJsonGlob: "vcpkg.json"
+          vcpkgGitCommitId: "a7b6122f6b6504d16d96117336a0562693579933"
+          runVcpkgInstall: true
+
+      - name: Install cibuildwheel
+        run: python -m pip install cibuildwheel
+
+      - name: Build wheel
+        run: python -m pip wheel . --wheel-dir ./wheelhouse -v
+
+      - name: Upload python wheels
+        uses: actions/upload-artifact@v2
+        with:
+          name: python-wheels
+          path: ./wheelhouse/*.whl
+  
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+
+      - name: Install pre-requisites
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bison python3 python3-pip python3-jinja2 python3-venv python3-build meson wget \
+          build-essential gcc g++ autopoint autoconf automake libtool pkg-config \
+          cmake git curl zip unzip tar libx11-dev libxft-dev gperf libgles2-mesa-dev \
+          libxext-dev libxrandr-dev libxi-dev libxcursor-dev libxdamage-dev  \
+          libxinerama-dev libxi-dev libxtst-dev libdbus-1-dev
+
+      - run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install scikit-build
+          python3 setup.py sdist
+
+      - name: Upload source distribution
+        uses: actions/upload-artifact@v2
+        with:
+          name: python-sdist
+          path: ./dist/*
+
+  release:
+    name: Make a Release
+    needs: build_wheels
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download python wheels
+        uses: actions/download-artifact@v3
+        with:
+          name: python-wheels
+          path: ./wheelhouse/
+      
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./wheelhouse/*
+  
+  pypi_publish:
+    name: Publish to PyPI
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download python wheels
+        uses: actions/download-artifact@v3
+        with:
+          name: python-wheels
+          path: ./dist/
+
+      - name: Download python sdist
+        uses: actions/download-artifact@v3
+        with:
+          name: python-sdist
+          path: ./dist/
+
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          verbose: true
+          password: ${{ secrets.PYPI_TOKEN }}
