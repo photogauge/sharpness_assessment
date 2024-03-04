@@ -3,7 +3,20 @@
     ".": {
       "release-type": "simple",
       "draft": false,
-      "prerelease": false
+      "prerelease": false,
+      "skip-github-release": true,
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "vcpkg.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "version.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
