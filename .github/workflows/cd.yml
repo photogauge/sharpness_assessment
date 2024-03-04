@@ -11,6 +11,8 @@ on:
   push:
     tags:
       - "v*.*.*"
+  release:
+    types: [published]
 
 jobs:
   build_wheels:
@@ -114,7 +116,7 @@ jobs:
           path: ./dist/*
 
   release:
-    name: Make a Release
+    name: Publish release artifacts
     needs: build_wheels
     runs-on: ubuntu-latest
     steps:
