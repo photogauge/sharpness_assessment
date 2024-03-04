@@ -1,0 +1,14 @@
+# Changelog
+
+## 0.1.6 (2024-03-04)
+
+
+### Features
+
+* automated build and release of the sharpness assessment package ([#1](https://github.com/photogauge/sharpness_assessment/issues/1)) ([d1137bc](https://github.com/photogauge/sharpness_assessment/commit/d1137bcee81bd8518acce4abf46ea17018f94b59))
+
+
+### Miscellaneous Chores
+
+* publish release 0.1.6 ([922254a](https://github.com/photogauge/sharpness_assessment/commit/922254ad86321fba59a085ddc3a5a05d7b2876d1))
+* publish release 0.1.6 ([bb45b8f](https://github.com/photogauge/sharpness_assessment/commit/bb45b8fffed2f1cfde15db206d42cdca44bc8767))
