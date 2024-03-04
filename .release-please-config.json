@@ -9,7 +9,7 @@
         {
           "type": "json",
           "path": "vcpkg.json",
-          "jsonpath": "$.version"
+          "jsonpath": "$.version-semver"
         },
         {
           "type": "json",
