@@ -47,7 +47,7 @@ if SKBUILD_DIR.exists():
 with open(PROJECT_SOURCE_DIR / "vcpkg.json") as f:
     vcpkg_json = json.load(f)
     # Required
-    PROJECT_VERSION_STRING = vcpkg_json["version-semver"]
+    PROJECT_VERSION_STRING = vcpkg_json["version"]
     PROJECT_NAME = vcpkg_json["name"]
 
 # scikit-build will take care of puting our compiled C++ library together with
