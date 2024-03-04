@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/photogauge/sharpness_assessment/compare/v0.1.7...v0.1.9) (2024-03-04)
+
+
+### Miscellaneous Chores
+
+* publish release 0.1.9 ([4872aaf](https://github.com/photogauge/sharpness_assessment/commit/4872aaf5ad13d78d99f097de5d889d889df89c0d))
+
 ## [0.1.7](https://github.com/photogauge/sharpness_assessment/compare/v0.1.6...v0.1.7) (2024-03-04)
 
 
