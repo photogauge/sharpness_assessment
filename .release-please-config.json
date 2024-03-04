@@ -1,7 +1,9 @@
 {
   "packages": {
     ".": {
-      "release-type": "simple"
+      "release-type": "simple",
+      "draft": false,
+      "prerelease": false
     }
   }
 }
