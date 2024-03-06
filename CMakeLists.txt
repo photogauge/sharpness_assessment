@@ -51,7 +51,7 @@ endif()
 # them from `vcpkg.json` in the repository root.
 file(READ ${CMAKE_SOURCE_DIR}/vcpkg.json vcpkg_json)
 string(JSON PROJECT_NAME GET ${vcpkg_json} "name")
-string(JSON VERSION_STRING GET ${vcpkg_json} "version-semver")
+string(JSON VERSION_STRING GET ${vcpkg_json} "version")
 
 # Set the project name and version
 set(PROJECT_NAME "sharpness_assessment")
