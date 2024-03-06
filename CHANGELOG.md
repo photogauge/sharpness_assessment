@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.16](https://github.com/photogauge/sharpness_assessment/compare/v0.1.15...v0.1.16) (2024-03-06)
+
+
+### Bug Fixes
+
+* cmake version ([#29](https://github.com/photogauge/sharpness_assessment/issues/29)) ([3e14ba0](https://github.com/photogauge/sharpness_assessment/commit/3e14ba0f1d163819ee400a5be26447cf43df70df))
+* use external version file instead of vcpkg.json ([#31](https://github.com/photogauge/sharpness_assessment/issues/31)) ([95c51d6](https://github.com/photogauge/sharpness_assessment/commit/95c51d62a6c7f40e553661650ff0017b584ecbd3))
+
 ## [0.1.15](https://github.com/photogauge/sharpness_assessment/compare/v0.1.14...v0.1.15) (2024-03-06)
 
 
