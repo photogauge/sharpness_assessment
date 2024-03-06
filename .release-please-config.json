@@ -4,7 +4,7 @@
       "release-type": "simple",
       "draft": false,
       "prerelease": false,
-      "skip-github-release": true,
+      "skip-github-release": false,
       "extra-files": [
         {
           "type": "json",
