@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.15](https://github.com/photogauge/sharpness_assessment/compare/v0.1.14...v0.1.15) (2024-03-06)
+
+
+### Bug Fixes
+
+* vcpkg.json ([#27](https://github.com/photogauge/sharpness_assessment/issues/27)) ([8e4a3e8](https://github.com/photogauge/sharpness_assessment/commit/8e4a3e87d3907e01abd0a6f76641af81060f45f6))
+
 ## [0.1.14](https://github.com/photogauge/sharpness_assessment/compare/v0.1.13...v0.1.14) (2024-03-06)
 
 
