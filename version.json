@@ -1,3 +1,5 @@
 {
-  "version": "0.1.15"
+  "name": "sharpness-assessment",
+  "version": "0.1.15",
+  "description": "A minimal example library using pybind11 and vcpkg"
 }

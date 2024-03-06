@@ -44,11 +44,11 @@ if SKBUILD_DIR.exists():
 # In order to avoid specifying package name and version in multiple files, we
 # will use `vcpkg.json` in the repository root as reference and extract the
 # apropiate variables from there.
-with open(PROJECT_SOURCE_DIR / "vcpkg.json") as f:
-    vcpkg_json = json.load(f)
+with open(PROJECT_SOURCE_DIR / "version.json") as f:
+    version_json = json.load(f)
     # Required
-    PROJECT_VERSION_STRING = vcpkg_json["version"]
-    PROJECT_NAME = vcpkg_json["name"]
+    PROJECT_VERSION_STRING = version_json["version"]
+    PROJECT_NAME = version_json["name"]
 
 # scikit-build will take care of puting our compiled C++ library together with
 # our python package so it can access it. The name of the python package will
