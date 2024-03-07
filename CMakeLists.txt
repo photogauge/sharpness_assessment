@@ -3,10 +3,10 @@ cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_CXX_STANDARD 17)
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
     set(VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/overlays")
     set(VCPKG_OVERLAY_TRIPLETS "${CMAKE_SOURCE_DIR}/triplets")
-    set(VCPKG_TARGET_TRIPLET "x64-linux-rel")
+    set(VCPKG_TARGET_TRIPLET "x64-linux")
 endif()
 
 # vcpkg dependency manager
