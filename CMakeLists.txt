@@ -62,7 +62,7 @@ project(${PROJECT_NAME} VERSION ${VERSION_STRING} LANGUAGES CXX)
 # `add_submodule` if it starts to grow too large.
 
 # ------------------------- Build the project library -------------------------
-# Recomended refactor into src/${PROJECT_NAME}/CMakeLists.txt
+# Recommended refactor into src/${PROJECT_NAME}/CMakeLists.txt
 
 add_subdirectory(src/${PROJECT_NAME})
 

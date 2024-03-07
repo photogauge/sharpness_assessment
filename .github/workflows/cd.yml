@@ -65,7 +65,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.3.1
         env:
           CIBW_BUILD_VERBOSITY: 1
-          CIBW_SKIP: "*-musllinux* *i686 *-win32 cp37-* cp38-* " # skip building for PyPy
+          CIBW_SKIP: "*-musllinux* pp* *i686 *-win32 cp37-* cp38-* cp39-*" # skip building for PyPy
           CIBW_ARCHES: x86_64
           CIBW_ARCHS_MACOS: x86_64 arm64
           CIBW_MANYLINUX_X86_64_IMAGE: quay.io/pypa/manylinux_2_28_x86_64
