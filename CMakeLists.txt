@@ -3,10 +3,10 @@ cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_CXX_STANDARD 17)
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
     set(VCPKG_OVERLAY_PORTS "${CMAKE_SOURCE_DIR}/overlays")
     set(VCPKG_OVERLAY_TRIPLETS "${CMAKE_SOURCE_DIR}/triplets")
-    set(VCPKG_TARGET_TRIPLET "x64-linux-rel")
+    set(VCPKG_TARGET_TRIPLET "x64-linux")
 endif()
 
 # vcpkg dependency manager
@@ -62,7 +62,7 @@ project(${PROJECT_NAME} VERSION ${VERSION_STRING} LANGUAGES CXX)
 # `add_submodule` if it starts to grow too large.
 
 # ------------------------- Build the project library -------------------------
-# Recomended refactor into src/${PROJECT_NAME}/CMakeLists.txt
+# Recommended refactor into src/${PROJECT_NAME}/CMakeLists.txt
 
 add_subdirectory(src/${PROJECT_NAME})
 
