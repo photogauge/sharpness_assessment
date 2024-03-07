@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.17](https://github.com/photogauge/sharpness_assessment/compare/v0.1.16...v0.1.17) (2024-03-07)
+
+
+### Bug Fixes
+
+* moved back to cibuildwheel and fixed build using overlays ([#33](https://github.com/photogauge/sharpness_assessment/issues/33)) ([d91411a](https://github.com/photogauge/sharpness_assessment/commit/d91411a921419160d45642d2bae172bec2464bae))
+
 ## [0.1.16](https://github.com/photogauge/sharpness_assessment/compare/v0.1.15...v0.1.16) (2024-03-06)
 
 
